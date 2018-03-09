@@ -308,13 +308,6 @@ public class ObjectProperties {
 
         props.put(pid, new ObjectPropertyTypeDefinition(type, required, ptd));
 
-        // 在objectPropertyTypes保存PropertyTypeDefinition的同时也会在propertyTypes保存一份PropertyTypeDefinition
-        // 如果保存了一个以上的PropertyTypeDefinition，那么propertyTypes会将key保留但value赋值为null，但如果
-        // PropertyTypeDefinition相同则propertyTypes不发生改变
-        
-        // 不同的ObjectType可以保存相同的PropertyTypeDefinition
-        // 同一个ObjectType不可以拥有相同的pid（不是PropertyTypeDefinition），否则会抛出RuntimeException
-        
         // Add to the property types. If an entry already exists, then replace it with null. In the end, only
         // properties that have a single type will remain.
         if (propertyTypes.containsKey(pid)) {
